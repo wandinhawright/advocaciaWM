@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacia Premium | Design Moderno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0f1216;
+            --accent-gold: #d4af37;
+            --soft-white: #f8f9fa;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--soft-white);
+            color: #2d2d2d;
+        }
+
+        h1, h2, h3, .philosophy { font-family: 'Playfair Display', serif; }
+
+        /* Navbar Transparente Moderno */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(15, 18, 22, 0.95);
+            padding: 20px 0;
+        }
+
+        /* Hero Minimalista */
+        .hero-minimal {
+            padding: 160px 0 100px 0;
+            background-color: var(--primary-dark);
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        /* Seção Bio (O Cliente) */
+        .bio-image-container {
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .bio-image-container img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .bio-image-container img:hover {
+            filter: grayscale(0%);
+        }
+
+        .bio-image-container::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-gold);
+            z-index: -1;
+        }
+
+        /* Cards de Atuação Modernos */
+        .service-card {
+            border: none;
+            border-bottom: 2px solid #eee;
+            border-radius: 0;
+            transition: 0.3s;
+            background: transparent;
+        }
+
+        .service-card:hover {
+            border-bottom: 2px solid var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .text-gold { color: var(--accent-gold); }
+        .btn-outline-gold {
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 0;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--accent-gold);
+            color: white;
+        }
+
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">DR. <span class="text-gold">NOME CLIENTE</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="#sobre">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#atuacao">Prática Jurídica</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-gold ms-lg-4" href="#contato">Agendar Consultoria</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-minimal">
+        <div class="container text-center">
+            <h1 class="display-2 mb-3">Defesa de Alto Nível para <br> <span class="fst-italic philosophy text-gold">Causas Complexas.</span></h1>
+            <p class="lead opacity-75">Soluções jurídicas estratégicas com foco em Direito Empresarial e Civil.</p>
+        </div>
+    </header>
+
+    <section id="sobre" class="py-5 my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="bio-image-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Dr. Nome do Cliente">
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <h6 class="text-gold text-uppercase ls-2 mb-3">O Advogado</h6>
+                    <h2 class="display-4 mb-4">Experiência moldada <br>pela excelência.</h2>
+                    <p class="text-muted mb-4 lead">Com mais de 15 anos de atuação, o Dr. Nome do Cliente fundou este escritório com a premissa de que cada caso exige uma arquitetura jurídica única.</p>
+                    <p class="text-muted mb-5">Graduado pela [Nome da Universidade] e mestre em Direito Civil, sua carreira é pautada pela defesa intransigente dos interesses de seus clientes, unindo a tradição do direito à agilidade das novas tecnologias jurídicas.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-6 col-md-4 text-center border-end">
+                            <div class="stat-number">+500</div>
+                            <small class="text-uppercase">Casos Concluídos</small>
+                        </div>
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="stat-number">15+</div>
+                            <small class="text-uppercase">Anos de Mercado</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atuacao" class="py-5 bg-white">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <h2 class="display-5">Nossa Especialidade</h2>
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <p class="text-muted">Atuação estratégica em diversas frentes do Direito para garantir segurança jurídica total.</p>
+                </div>
+            </div>
+            
+            <div class="row g-0">
+                <div class="col-md-4 service-card p-5">
+                    <span class="text-gold h2">01.</span>
+                    <h4 class="mt-3">Direito Societário</h4>
+                    <p class="text-muted mt-3 small">Estruturação de empresas, fusões e aquisições com foco em mitigação de riscos.</p>
+                </div>
+                <div class="col-md-4 service-card p-5">
+                    <span class="text-gold h2">02.</span>
+                    <h4 class="mt-3">Compliance Digital</h4>
+                    <p class="text-muted mt-3 small">Adequação completa à LGPD e proteção de ativos intelectuais no ambiente digital.</p>
+                </div>
+                <div class="col-md-4 service-card p-5">
+                    <span class="text-gold h2">03.</span>
+                    <h4 class="mt-3">Gestão Patrimonial</h4>
+                    <p class="text-muted mt-3 small">Planejamento sucessório e blindagem patrimonial para famílias e executivos.</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container text-center">
+            <h2 class="philosophy fst-italic mb-4 text-gold">Ready to protect your legacy?</h2>
+            <p class="mb-4">Atendimento presencial em São Paulo e consultas online para todo o Brasil.</p>
+            <hr class="opacity-25 my-5">
+            <p class="small opacity-50">© 2026 Office Name. Todos os direitos reservados. OAB 000.000/SP</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

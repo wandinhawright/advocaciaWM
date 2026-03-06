@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advocacia Premium | Design Moderno</title>
@@ -96,22 +98,84 @@
 
         .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); }
     </style>
+    
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">DR. <span class="text-gold">NOME CLIENTE</span></a>
+            <a class="navbar-brand fw-bold" href="#">DR. <span class="text-gold">RICARDO MINUSSI</span></a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link px-3" href="#sobre">Perfil</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#atuacao">Prática Jurídica</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-gold ms-lg-4" href="#contato">Agendar Consultoria</a></li>
+                    <button class="btn btn-outline-gold ms-lg-4" 
+        type="button" 
+        data-bs-toggle="offcanvas" 
+        data-bs-target="#menuConsultoria">
+    AGENDE SUA CONSULTA
+</button>
                 </ul>
             </div>
         </div>
     </nav>
 
+
+<style>
+    /* Ajuste para o Crispy Forms brilhar no fundo escuro */
+    #offcanvasConsultoria label {
+        color: #c5a059;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    #offcanvasConsultoria .form-control {
+        background-color: #2b2f33;
+        border: 1px solid #444;
+        color: white;
+    }
+    #offcanvasConsultoria .form-control:focus {
+        border-color: #c5a059;
+        box-shadow: none;
+    }
+</style>
+ <style>
+    /* Estilização do Botão Flutuante de WhatsApp */
+    .whatsapp-float {
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 40px;
+        right: 40px;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2));
+    }
+
+    .whatsapp-icon-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Ajuste para telas pequenas (Mobile) */
+    @media screen and (max-width: 768px) {
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+</style>
+
+<a href="https://wa.me/556198399197" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <img src="{% static 'img/whatsapp.png' %}" alt="Fale conosco no WhatsApp" class="whatsapp-icon-img">
+</a>
     <header class="hero-minimal">
         <div class="container text-center">
             <h1 class="display-2 mb-3">Defesa de Alto Nível para <br> <span class="fst-italic philosophy text-gold">Causas Complexas.</span></h1>
@@ -139,7 +203,7 @@
                             <small class="text-uppercase">Casos Concluídos</small>
                         </div>
                         <div class="col-6 col-md-4 text-center">
-                            <div class="stat-number">15+</div>
+                            <div class="stat-number">10+</div>
                             <small class="text-uppercase">Anos de Mercado</small>
                         </div>
                     </div>
@@ -184,10 +248,51 @@
             <h2 class="philosophy fst-italic mb-4 text-gold">Ready to protect your legacy?</h2>
             <p class="mb-4">Atendimento presencial em São Paulo e consultas online para todo o Brasil.</p>
             <hr class="opacity-25 my-5">
-            <p class="small opacity-50">© 2026 Office Name. Todos os direitos reservados. OAB 000.000/SP</p>
+            <p class="small opacity-50">© 2026 AdvocaciaWM. Todos os direitos reservados. OAB 000.000/SP</p>
         </div>
     </footer>
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="menuConsultoria" aria-labelledby="labelConsultoria">
+    <div class="offcanvas-header border-bottom border-secondary">
+        <h5 class="offcanvas-title text-gold" id="labelConsultoria">Solicitar Consultoria</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body">
+    <form method="post">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        
+        {{ form|crispy }}  <button type="submit" class="btn btn-gold w-100 mt-3">ENVIAR DADOS</button>
+    </form>
+</div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% if messages %}
+    <div class="position-fixed bottom-0 end-0 p-4" style="z-index: 9999;">
+        {% for message in messages %}
+        <div id="toastSucesso" class="toast align-items-center text-white border-0 show"
+             role="alert" aria-live="assertive" aria-atomic="true"
+             style="background-color: #d4af37;">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold fs-6">
+                    ✔ {{ message }}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        setTimeout(function () {
+            var toast = document.getElementById('toastSucesso');
+            if (toast) {
+                var bsToast = bootstrap.Toast.getOrCreateInstance(toast);
+                bsToast.hide();
+            }
+        }, 4000);
+    </script>
+    {% endif %}
 </body>
 </html>

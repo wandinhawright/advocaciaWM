@@ -33,6 +33,7 @@
         /* Hero Minimalista */
         .hero-minimal {
             padding: 160px 0 100px 0;
+            margin-top: 70px;
             background-color: var(--primary-dark);
             color: white;
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
@@ -104,7 +105,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">DR. <span class="text-gold">RICARDO MINUSSI</span></a>
+            <a class="navbar-brand fw-bold" href="#"> <img src="{% static 'img/logocinzahorizontal.png' %}" alt="Logo" width="550"> </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link px-3" href="#sobre">Perfil</a></li>
@@ -188,7 +189,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="bio-image-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Dr. Nome do Cliente">
+                        <img src="{% static 'img/temporário.jpg' %}" alt="Dr. Nome do Cliente">
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1">
@@ -245,8 +246,8 @@
 
     <footer class="bg-dark text-white py-5 mt-5">
         <div class="container text-center">
-            <h2 class="philosophy fst-italic mb-4 text-gold">Ready to protect your legacy?</h2>
-            <p class="mb-4">Atendimento presencial em São Paulo e consultas online para todo o Brasil.</p>
+            <a class="navbar-brand fw-bold" href="#"> <img src="{% static 'img/curtohorizontal.png' %}" alt="Logo" width="220"> </a>
+            <p class="mb-4">Atendimento presencial em Brasília-DF e consultas online para todo o Brasil.</p>
             <hr class="opacity-25 my-5">
             <p class="small opacity-50">© 2026 AdvocaciaWM. Todos os direitos reservados. OAB 000.000/SP</p>
         </div>

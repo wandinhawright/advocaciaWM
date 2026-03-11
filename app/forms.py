@@ -6,7 +6,7 @@ from crispy_forms.layout import Layout, Submit
 class ConsultoriaForm(forms.ModelForm):
     class Meta:
         model = LeadConsultoria
-        fields = ['nome', 'idade', 'telefone', 'email', 'motivo']
+        fields = ['nome', 'Data_de_Nascimento', 'telefone', 'email', 'motivo']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

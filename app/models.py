@@ -25,8 +25,8 @@ class Especialidade(models.Model):
     
 class LeadConsultoria(models.Model):
     nome = models.CharField(max_length=150)
-    idade = models.PositiveIntegerField()
-    motivo = models.TextField(verbose_name="Motivo da Procura")
+    Data_de_Nascimento = models.DateField()
+    motivo = models.TextField(verbose_name="Descricao da solicitacao")
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
     data_envio = models.DateTimeField(auto_now_add=True)
